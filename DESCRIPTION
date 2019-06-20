@@ -1,11 +1,17 @@
 Package: easytest
 Type: Package
-Title: What the Package Does (Title Case)
-Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+Title: Make Testing Great Again!
+Version: 0.0.0.9000
+Author: Josh Muncke
+Maintainer: Josh Muncke <joshxthomas@gmail.com>
+Description: easytest is a wrapper around testthat which provides
+    quick, pipe-able functions for some of the most common tests
+    that are done during an analysis.
+License: GPL-3
 Encoding: UTF-8
 LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 6.1.1
+Imports: 
+    magrittr,
+    testthat
