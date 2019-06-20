@@ -5,15 +5,15 @@
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "0",
+    "hash" : "368510391",
     "id" : "445AA463",
-    "lastKnownWriteTime" : 1561064778,
-    "last_content_update" : 1561064778126,
+    "lastKnownWriteTime" : 1561073189,
+    "last_content_update" : 1561073189149,
     "path" : "~/GitHub/easytest/README.Rmd",
     "project_path" : "README.Rmd",
     "properties" : {
-        "cursorPosition" : "17,20",
-        "scrollLine" : "8"
+        "cursorPosition" : "68,0",
+        "scrollLine" : "48"
     },
     "read_only" : false,
     "read_only_alternatives" : [
