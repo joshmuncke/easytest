@@ -1,0 +1,17 @@
+Package: easytest
+Type: Package
+Title: Make Testing Great Again!
+Version: 0.0.0.9000
+Author: Josh Muncke
+Maintainer: Josh Muncke <joshxthomas@gmail.com>
+Description: easytest is a wrapper around testthat which provides
+    quick, pipe-able functions for some of the most common tests
+    that are done during an analysis.
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 6.1.1
+Imports: 
+    magrittr,
+    testthat

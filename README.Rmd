@@ -1,0 +1,27 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+# easytest
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+The goal of easytest is to ...
+
+You can install `easytest` from Github using the following command:
+
+```{r, eval = F}
+# You must have devtools installed first
+devtools::install_github("joshmuncke/easytest")
+```
