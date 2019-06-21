@@ -38,6 +38,25 @@ test_no_duplicates <- function(df, ...) {
   invisible(df)
 }
 
+
+#' Test that there are no duplicates in a dataframe
+#'
+#' Performs a test that a dataframe has
+#'
+#' @param df A dataframe
+#' @param ... Optional selection of specific columns to include in the
+#' duplicate check.
+#'
+#' @return The dataframe passed to the function.
+#'
+#' @examples
+#' # Basic usage
+#' test_n_rows(mtcars, 32)
+#'
+#' # Can also be used in magrittr pipe
+#' mtcars %>% test_n_rows(32) %>% select(mpg)
+#'
+#' @export
 test_complete <- function(df) {
   testthat::test_that(paste0("Dataframe [", deparse(substitute(df)), "] is complete"),
                       testthat::expect_identical(df, df %>% dplyr::filter(complete.cases(.))))
