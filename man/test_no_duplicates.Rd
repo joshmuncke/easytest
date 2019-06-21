@@ -16,13 +16,23 @@ duplicate check.}
 The dataframe passed to the function.
 }
 \description{
-Performs a test that a dataframe has
+Performs a test that a dataframe has no duplicate rows.
+Column names can be passed in (like \code{\link[dplyr]{select}})
+if you wish to restrict the duplicate search to just these columns.
+}
+\details{
+When selecting a subset of columns be aware that duplicates will
+still be looked for within the entire row - not for each column
+individually.
 }
 \examples{
-# Basic usage
-test_n_rows(mtcars, 32)
+# Basic usage - passes
+test_no_duplicates(mtcars)
+
+# Select specific columns - fails
+test_no_duplicates(mtcars, cyl)
 
 # Can also be used in magrittr pipe
-mtcars \%>\% test_n_rows(32) \%>\% select(mpg)
+mtcars \%>\% test_no_duplicates() \%>\% select(mpg)
 
 }

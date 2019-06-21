@@ -1,6 +1,8 @@
 #' Test that there are no duplicates in a dataframe
 #'
-#' Performs a test that a dataframe has
+#' Performs a test that a dataframe has no duplicate rows.
+#' Column names can be passed in (like \code{\link[dplyr]{select}})
+#' if you wish to restrict the duplicate search to just these columns.
 #'
 #' @param df A dataframe
 #' @param ... Optional selection of specific columns to include in the
@@ -8,12 +10,20 @@
 #'
 #' @return The dataframe passed to the function.
 #'
+#' @details
+#' When selecting a subset of columns be aware that duplicates will
+#' still be looked for within the entire row - not for each column
+#' individually.
+#'
 #' @examples
-#' # Basic usage
-#' test_n_rows(mtcars, 32)
+#' # Basic usage - passes
+#' test_no_duplicates(mtcars)
+#'
+#' # Select specific columns - fails
+#' test_no_duplicates(mtcars, cyl)
 #'
 #' # Can also be used in magrittr pipe
-#' mtcars %>% test_n_rows(32) %>% select(mpg)
+#' mtcars %>% test_no_duplicates() %>% select(mpg)
 #'
 #' @export
 test_no_duplicates <- function(df, ...) {
@@ -22,26 +32,27 @@ test_no_duplicates <- function(df, ...) {
 
   if(length(col_names) == 0) {
     df_select <- df %>% tibble::rownames_to_column()
+    test_message <- glue::glue("No duplicate values in dataframe [{df_name}]", df_name = df_name)
   }
 
   else {
     df_select <- df %>% tibble::rownames_to_column() %>% dplyr::select(!!! col_names)
+    test_message <- glue::glue("No duplicate values in columns [{col_names}] of dataframe [{df_name}]", col_names = col_names, df_name = df_name)
   }
 
   distinct_df_select <- df_select %>% dplyr::distinct()
 
-  test_message <- glue::glue("dataframe [{df_name}]", df_name = df_name)
-
   testthat::test_that(test_message,
-                      testthat::expect_equal(df_select, distinct_df_select))
+                      testthat::expect_identical(df_select, distinct_df_select))
 
   invisible(df)
 }
 
-
-#' Test that there are no duplicates in a dataframe
+#' Test that there are no missing values in a dataframe
 #'
-#' Performs a test that a dataframe has
+#' Performs a test that a dataframe has no duplicate rows.
+#' Column names can be passed in (like \code{\link[dplyr]{select}})
+#' if you wish to restrict the duplicate search to just these columns.
 #'
 #' @param df A dataframe
 #' @param ... Optional selection of specific columns to include in the
@@ -49,17 +60,40 @@ test_no_duplicates <- function(df, ...) {
 #'
 #' @return The dataframe passed to the function.
 #'
+#' @details
+#' When selecting a subset of columns be aware that duplicates will
+#' still be looked for within the entire row - not for each column
+#' individually.
+#'
 #' @examples
-#' # Basic usage
-#' test_n_rows(mtcars, 32)
+#' # Basic usage - passes
+#' test_no_duplicates(mtcars)
+#'
+#' # Select specific columns - fails
+#' test_no_duplicates(mtcars, cyl)
 #'
 #' # Can also be used in magrittr pipe
-#' mtcars %>% test_n_rows(32) %>% select(mpg)
+#' mtcars %>% test_no_duplicates() %>% select(mpg)
 #'
 #' @export
-test_complete <- function(df) {
-  testthat::test_that(paste0("Dataframe [", deparse(substitute(df)), "] is complete"),
-                      testthat::expect_identical(df, df %>% dplyr::filter(complete.cases(.))))
+test_complete <- function(df, ...) {
+  df_name <- deparse(substitute(df))
+  col_names <- rlang::quos(...)
+
+  if(length(col_names) == 0) {
+    df_select <- df %>% tibble::rownames_to_column()
+    test_message <- glue::glue("No missing values in dataframe [{df_name}]", df_name = df_name)
+  }
+
+  else {
+    df_select <- df %>% tibble::rownames_to_column() %>% dplyr::select(!!! col_names)
+    test_message <- glue::glue("No missing values in columns [{col_names}] of dataframe [{df_name}]", col_names = col_names, df_name = df_name)
+  }
+
+  complete_df_select <- df_select %>% dplyr::filter(complete.cases(.))
+
+  testthat::test_that(test_message,
+                      testthat::expect_identical(df_select, complete_df_select))
 
   invisible(df)
 }
