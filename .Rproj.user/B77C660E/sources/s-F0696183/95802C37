@@ -5,21 +5,21 @@
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "900252684",
+    "hash" : "4238718688",
     "id" : "95802C37",
-    "lastKnownWriteTime" : 1561083016,
-    "last_content_update" : 1561083016401,
+    "lastKnownWriteTime" : 1561083441,
+    "last_content_update" : 1561083441659,
     "path" : "~/GitHub/easytest/R/df-tests.R",
     "project_path" : "R/df-tests.R",
     "properties" : {
-        "cursorPosition" : "68,0",
-        "scrollLine" : "54",
+        "cursorPosition" : "14,1",
+        "scrollLine" : "0",
         "tempName" : "Untitled1"
     },
     "read_only" : false,
     "read_only_alternatives" : [
     ],
-    "relative_order" : 3,
+    "relative_order" : 1,
     "source_on_save" : false,
     "source_window" : "",
     "type" : "r_source"

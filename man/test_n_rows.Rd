@@ -12,11 +12,10 @@ test_n_rows(df, n)
 \item{n}{Expected number of rows}
 }
 \value{
-The dataframe passed to the function
+The dataframe passed to the function.
 }
 \description{
 Performs a test that the dataframe has the number of rows you expect.
-Throws an error if not.
 }
 \examples{
 # Basic usage
