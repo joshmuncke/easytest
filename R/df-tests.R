@@ -1,8 +1,39 @@
+#' Test that there are no duplicates in a dataframe
+#'
+#' Performs a test that a dataframe has
+#'
+#' @param df A dataframe
+#' @param ... Optional selection of specific columns to include in the
+#' duplicate check.
+#'
+#' @return The dataframe passed to the function.
+#'
+#' @examples
+#' # Basic usage
+#' test_n_rows(mtcars, 32)
+#'
+#' # Can also be used in magrittr pipe
+#' mtcars %>% test_n_rows(32) %>% select(mpg)
+#'
+#' @export
 test_no_duplicates <- function(df, ...) {
-  df <- df %>% dplyr::select(!!!enquos(...))
+  df_name <- deparse(substitute(df))
+  col_names <- rlang::quos(...)
 
-  testthat::test_that(paste0("No duplicates in dataframe [", deparse(substitute(df)), "]"),
-                      testthat::expect_identical(df, dplyr::distinct(df)))
+  if(length(col_names) == 0) {
+    df_select <- df %>% tibble::rownames_to_column()
+  }
+
+  else {
+    df_select <- df %>% tibble::rownames_to_column() %>% dplyr::select(!!! col_names)
+  }
+
+  distinct_df_select <- df_select %>% dplyr::distinct()
+
+  test_message <- glue::glue("dataframe [{df_name}]", df_name = df_name)
+
+  testthat::test_that(test_message,
+                      testthat::expect_equal(df_select, distinct_df_select))
 
   invisible(df)
 }
