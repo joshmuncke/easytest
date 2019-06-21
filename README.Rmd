@@ -12,10 +12,13 @@ knitr::opts_chunk$set(
   out.width = "100%"
 )
 ```
-# easytest
+# easytest 
+<!-- <img src="man/figures/logo.png" align="right" /> -->
 
 <!-- badges: start -->
 <!-- badges: end -->
+
+## Overview
 
 I will admit it - I'm lazy. **easytest** is for people like me.
 
