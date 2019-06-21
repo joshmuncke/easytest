@@ -14,6 +14,24 @@ test_complete <- function(df) {
   invisible(df)
 }
 
+#' Test the number rows in a dataframe
+#'
+#' Performs a test that the dataframe has the number of rows you expect -
+#' throws an error if not.
+#'
+#' @param df A dataframe
+#' @param n Expected number of rows
+#'
+#' @return The dataframe passed to the function.
+#'
+#' @examples
+#' # Basic usage
+#' test_n_rows(mtcars, 32)
+#'
+#' # Can also be used in magrittr pipe
+#' mtcars %>% test_n_rows(32) %>% select(mpg)
+#'
+#' @export
 test_n_rows <- function(df, n) {
   df_name <- deparse(substitute(df))
   df2_name <- deparse(substitute(df2))
