@@ -65,6 +65,27 @@ test_column_n_unique_values <- function(df, col, n) {
   invisible(df)
 }
 
+#' Test maximum value of a column
+#'
+#' Performs a test that no value in a specific column is larger
+#' than an expected value.
+#'
+#' @param df A dataframe
+#' @param col The unquoted column name of the column you want to test
+#' @param max The expected maximum value
+#'
+#' @return The dataframe passed to the function.
+#'
+#' @details
+#' Note that this test only verifies that all values in the column are
+#' less than or equal to the specified value. It does **not** test that the
+#' maximum value of the column is equal to a certain value.
+#'
+#' @examples
+#' # Basic usage
+#' test_column_max(mtcars, cyl, 400)
+#'
+#' @export
 test_column_max <- function(df, col, max) {
   df_name <- deparse(substitute(df))
   col_name <- deparse(substitute(col))
