@@ -11,7 +11,7 @@ test_column_min(df, col, min)
 
 \item{col}{The unquoted column name of the column you want to test}
 
-\item{min}{The expected maximum value}
+\item{min}{The expected minimum value}
 }
 \value{
 The dataframe passed to the function.
@@ -27,6 +27,6 @@ minimum value of the column is equal to a certain value.
 }
 \examples{
 # Basic usage
-test_column_min(mtcars, disp, 100)
+test_column_min(mtcars, disp, 50)
 
 }

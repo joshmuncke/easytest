@@ -106,7 +106,7 @@ test_column_max <- function(df, col, max) {
 #'
 #' @param df A dataframe
 #' @param col The unquoted column name of the column you want to test
-#' @param min The expected maximum value
+#' @param min The expected minimum value
 #'
 #' @return The dataframe passed to the function.
 #'
@@ -117,7 +117,7 @@ test_column_max <- function(df, col, max) {
 #'
 #' @examples
 #' # Basic usage
-#' test_column_min(mtcars, disp, 100)
+#' test_column_min(mtcars, disp, 50)
 #'
 #' @export
 test_column_min <- function(df, col, min) {
@@ -133,6 +133,33 @@ test_column_min <- function(df, col, min) {
   invisible(df)
 }
 
+#' Test a column is within an expected range
+#'
+#' Performs a test that no value in a specified column is
+#' greater or smaller than an expected minimum and maximum
+#' value.
+#'
+#' @param df A dataframe
+#' @param col The unquoted column name of the column you want to test
+#' @param min The expected minimum value
+#' @param max The expected maximum value
+#'
+#' @return The dataframe passed to the function.
+#'
+#' @details
+#' This function is also good for verifying that rescaling operations
+#' have worked as expected.
+#'
+#' @examples
+#' # Basic usage
+#' test_column_between(mtcars, disp, 50, 500)
+#'
+#' # Test a scaling operation
+#' mtcars %>%
+#' mutate(disp_scaled = (disp - min(disp)) / (max(disp) - min(disp))) %>%
+#' test_column_between(disp_scaled, 0, 1)
+#'
+#' @export
 test_column_between <- function(df, col, min, max) {
   df_name <- deparse(substitute(df))
   col_name <- deparse(substitute(col))
