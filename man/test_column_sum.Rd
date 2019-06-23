@@ -25,6 +25,6 @@ to validate that no duplicates or missing values have been created.
 }
 \examples{
 # Basic usage
-test_column_sum(mtcars, wt, 102.953)
+test_column_sum(mtcars, wt, 102.952)
 
 }

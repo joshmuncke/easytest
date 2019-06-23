@@ -20,10 +20,13 @@ another dataframe (even if the contents are different).
 }
 \examples{
 # Basic usage
+\dontrun{
 test_equal_rows(mtcars, mtcars)
 test_equal_rows(mtcars, iris)
+}
 
 # Can also be used in magrittr pipe
+library(dplyr)
 mtcars \%>\%
 mutate(mpg = 50) \%>\%
 test_equal_rows(mtcars)

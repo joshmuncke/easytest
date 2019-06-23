@@ -14,7 +14,7 @@
 #'
 #' @examples
 #' # Basic usage
-#' test_column_sum(mtcars, wt, 102.953)
+#' test_column_sum(mtcars, wt, 102.952)
 #'
 #' @export
 test_column_sum <- function(df, col, sum_expected) {
@@ -55,7 +55,7 @@ test_column_sum <- function(df, col, sum_expected) {
 test_column_n_unique_values <- function(df, col, n_expected) {
   df_name <- deparse(substitute(df))
   col_name <- deparse(substitute(col))
-  n_actual <- df %>% dplyr::summarize(n = n_distinct(!!rlang::enquo(col))) %>% dplyr::pull(n)
+  n_actual <- df %>% dplyr::summarize(n = dplyr::n_distinct(!!rlang::enquo(col))) %>% dplyr::pull(n)
 
   test_message <- glue::glue("Number of unique values in column [{col_name}] in dataframe [{df_name}] == ({n_expected})", col_name = col_name, df_name = df_name, n_expected = n_expected)
 

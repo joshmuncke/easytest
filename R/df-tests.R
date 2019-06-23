@@ -20,9 +20,12 @@
 #' test_no_duplicates(mtcars)
 #'
 #' # Select specific columns - fails
+#' \dontrun{
 #' test_no_duplicates(mtcars, cyl)
+#' }
 #'
 #' # Can also be used in magrittr pipe
+#' library(dplyr)
 #' mtcars %>% test_no_duplicates() %>% select(mpg)
 #'
 #' @export
@@ -70,9 +73,12 @@ test_no_duplicates <- function(df, ...) {
 #' test_no_duplicates(mtcars)
 #'
 #' # Select specific columns - fails
+#' \dontrun{
 #' test_no_duplicates(mtcars, cyl)
+#' }
 #'
 #' # Can also be used in magrittr pipe
+#' library(dplyr)
 #' mtcars %>% test_no_duplicates() %>% select(mpg)
 #'
 #' @export
@@ -112,6 +118,7 @@ test_complete <- function(df, ...) {
 #' test_n_rows(mtcars, 32)
 #'
 #' # Can also be used in magrittr pipe
+#' library(dplyr)
 #' mtcars %>% test_n_rows(32) %>% select(mpg)
 #'
 #' @export
@@ -140,13 +147,18 @@ test_n_rows <- function(df, n) {
 #'
 #' @examples
 #' # Basic usage
+#' \dontrun{
 #' test_same_as_other_df(mtcars, mtcars)
 #' test_same_as_other_df(mtcars, iris)
+#' }
 #'
 #' # Can also be used in magrittr pipe
+#' \dontrun{
+#' library(dplyr)
 #' mtcars %>%
 #' mutate(mpg = 50) %>%
 #' test_same_as_other_df(mtcars)
+#' }
 #'
 #' @export
 test_same_as_other_df <- function(df, df2) {
@@ -173,10 +185,13 @@ test_same_as_other_df <- function(df, df2) {
 #'
 #' @examples
 #' # Basic usage
+#' \dontrun{
 #' test_equal_rows(mtcars, mtcars)
 #' test_equal_rows(mtcars, iris)
+#' }
 #'
 #' # Can also be used in magrittr pipe
+#' library(dplyr)
 #' mtcars %>%
 #' mutate(mpg = 50) %>%
 #' test_equal_rows(mtcars)
