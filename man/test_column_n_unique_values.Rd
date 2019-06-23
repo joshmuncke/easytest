@@ -4,14 +4,14 @@
 \alias{test_column_n_unique_values}
 \title{Test unique values in a column}
 \usage{
-test_column_n_unique_values(df, col, n)
+test_column_n_unique_values(df, col, n_expected)
 }
 \arguments{
 \item{df}{A dataframe}
 
 \item{col}{The unquoted column name of the column you want to test}
 
-\item{n}{The expected number of unique values}
+\item{n_expected}{The expected number of unique values}
 }
 \value{
 The dataframe passed to the function.

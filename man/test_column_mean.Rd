@@ -4,16 +4,16 @@
 \alias{test_column_mean}
 \title{Test the mean value of a column}
 \usage{
-test_column_mean(df, col, mu, sd = 0)
+test_column_mean(df, col, mean_expected, sd_tolerance = 0)
 }
 \arguments{
 \item{df}{A dataframe}
 
 \item{col}{The unquoted column name of the column you want to test}
 
-\item{mu}{The expected mean value}
+\item{mean_expected}{The expected mean value}
 
-\item{sd}{The maximum number of standard deviations (+/-) tolerance}
+\item{sd_tolerance}{The maximum number of standard deviations (+/-) tolerance}
 }
 \value{
 The dataframe passed to the function.

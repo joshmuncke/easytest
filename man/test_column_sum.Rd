@@ -4,14 +4,14 @@
 \alias{test_column_sum}
 \title{Test the sum of a column}
 \usage{
-test_column_sum(df, col, sum)
+test_column_sum(df, col, sum_expected)
 }
 \arguments{
 \item{df}{A dataframe}
 
 \item{col}{The unquoted column name of the column you want to test}
 
-\item{sum}{The expected sum of the column}
+\item{sum_expected}{The expected sum of the column}
 }
 \value{
 The dataframe passed to the function.

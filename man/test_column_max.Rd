@@ -4,14 +4,14 @@
 \alias{test_column_max}
 \title{Test maximum value of a column}
 \usage{
-test_column_max(df, col, max)
+test_column_max(df, col, max_expected)
 }
 \arguments{
 \item{df}{A dataframe}
 
 \item{col}{The unquoted column name of the column you want to test}
 
-\item{max}{The expected maximum value}
+\item{max_expected}{The expected maximum value}
 }
 \value{
 The dataframe passed to the function.

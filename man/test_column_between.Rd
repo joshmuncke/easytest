@@ -4,16 +4,16 @@
 \alias{test_column_between}
 \title{Test a column is within an expected range}
 \usage{
-test_column_between(df, col, min, max)
+test_column_between(df, col, min_expected, max_expected)
 }
 \arguments{
 \item{df}{A dataframe}
 
 \item{col}{The unquoted column name of the column you want to test}
 
-\item{min}{The expected minimum value}
+\item{min_expected}{The expected minimum value}
 
-\item{max}{The expected maximum value}
+\item{max_expected}{The expected maximum value}
 }
 \value{
 The dataframe passed to the function.

@@ -4,14 +4,14 @@
 \alias{test_column_min}
 \title{Test minimum value of a column}
 \usage{
-test_column_min(df, col, min)
+test_column_min(df, col, min_expected)
 }
 \arguments{
 \item{df}{A dataframe}
 
 \item{col}{The unquoted column name of the column you want to test}
 
-\item{min}{The expected minimum value}
+\item{min_expected}{The expected minimum value}
 }
 \value{
 The dataframe passed to the function.
