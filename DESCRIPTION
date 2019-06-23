@@ -17,4 +17,6 @@ Imports:
     testthat,
     glue,
     dplyr,
-    rlang
+    rlang,
+    stats,
+    tibble

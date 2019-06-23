@@ -19,12 +19,17 @@ Performs a test that the dataframe is equal to another dataframe.
 }
 \examples{
 # Basic usage
+\dontrun{
 test_same_as_other_df(mtcars, mtcars)
 test_same_as_other_df(mtcars, iris)
+}
 
 # Can also be used in magrittr pipe
+\dontrun{
+library(dplyr)
 mtcars \%>\%
 mutate(mpg = 50) \%>\%
 test_same_as_other_df(mtcars)
+}
 
 }

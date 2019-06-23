@@ -30,9 +30,12 @@ individually.
 test_no_duplicates(mtcars)
 
 # Select specific columns - fails
+\dontrun{
 test_no_duplicates(mtcars, cyl)
+}
 
 # Can also be used in magrittr pipe
+library(dplyr)
 mtcars \%>\% test_no_duplicates() \%>\% select(mpg)
 
 }

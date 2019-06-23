@@ -22,6 +22,7 @@ Performs a test that the dataframe has the number of rows you expect.
 test_n_rows(mtcars, 32)
 
 # Can also be used in magrittr pipe
+library(dplyr)
 mtcars \%>\% test_n_rows(32) \%>\% select(mpg)
 
 }
