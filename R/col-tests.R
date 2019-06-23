@@ -175,6 +175,29 @@ test_column_between <- function(df, col, min, max) {
   invisible(df)
 }
 
+#' Test the mean value of a column
+#'
+#' Performs a test that a specific column has an expected mean value.
+#' Optionally - an acceptable tolerance can be specified in standard
+#' deviations.
+#'
+#' @param df A dataframe
+#' @param col The unquoted column name of the column you want to test
+#' @param mu The expected mean value
+#' @param sd The maximum number of standard deviations (+/-) tolerance
+#'
+#' @return The dataframe passed to the function.
+#'
+#' @examples
+#' # Basic usage
+#' test_column_mean(mtcars, qsec, 17.84875)
+#'
+#' # Usage without a stdev tolerance means match must be exactly equal
+#' # Often including a small tolerance is good to allow for rounding errors
+#' mtcars %>%
+#' test_column_mean(mpg, 20.09062, 0.01)
+#'
+#' @export
 test_column_mean <- function(df, col, mu, sd = 0) {
   df_name <- deparse(substitute(df))
   col_name <- deparse(substitute(col))

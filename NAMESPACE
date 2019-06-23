@@ -3,6 +3,7 @@
 export("%>%")
 export(test_column_between)
 export(test_column_max)
+export(test_column_mean)
 export(test_column_min)
 export(test_column_n_unique_values)
 export(test_column_sum)
