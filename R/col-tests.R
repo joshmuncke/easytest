@@ -155,6 +155,7 @@ test_column_min <- function(df, col, min_expected) {
 #' test_column_between(mtcars, disp, 50, 500)
 #'
 #' # Test a scaling operation
+#' library(dplyr)
 #' mtcars %>%
 #' mutate(disp_scaled = (disp - min(disp)) / (max(disp) - min(disp))) %>%
 #' test_column_between(disp_scaled, 0, 1)
