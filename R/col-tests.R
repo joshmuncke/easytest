@@ -83,7 +83,7 @@ test_column_n_unique_values <- function(df, col, n) {
 #'
 #' @examples
 #' # Basic usage
-#' test_column_max(mtcars, cyl, 400)
+#' test_column_max(mtcars, disp, 500)
 #'
 #' @export
 test_column_max <- function(df, col, max) {
@@ -99,6 +99,27 @@ test_column_max <- function(df, col, max) {
   invisible(df)
 }
 
+#' Test minimum value of a column
+#'
+#' Performs a test that no value in a specific column is smaller
+#' than an expected value.
+#'
+#' @param df A dataframe
+#' @param col The unquoted column name of the column you want to test
+#' @param min The expected maximum value
+#'
+#' @return The dataframe passed to the function.
+#'
+#' @details
+#' Note that this test only verifies that all values in the column are
+#' greater than or equal to the specified value. It does **not** test that the
+#' minimum value of the column is equal to a certain value.
+#'
+#' @examples
+#' # Basic usage
+#' test_column_min(mtcars, disp, 100)
+#'
+#' @export
 test_column_min <- function(df, col, min) {
   df_name <- deparse(substitute(df))
   col_name <- deparse(substitute(col))
