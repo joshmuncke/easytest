@@ -1,3 +1,22 @@
+#' Test the sum of a column
+#'
+#' Performs a test that a specific column has an expected sum.
+#'
+#' @param df A dataframe
+#' @param col The unquoted column name of the column you want to test
+#' @param sum The expected sum of the column
+#'
+#' @return The dataframe passed to the function.
+#'
+#' @details
+#' This function is good to utilize after performing joining operations
+#' to validate that no duplicates or missing values have been created.
+#'
+#' @examples
+#' # Basic usage
+#' test_column_sum(mtcars, wt, 102.953)
+#'
+#' @export
 test_column_sum <- function(df, col, sum) {
   df_name <- deparse(substitute(df))
   col_name <- deparse(substitute(col))
