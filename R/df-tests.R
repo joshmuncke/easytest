@@ -90,7 +90,7 @@ test_complete <- function(df, ...) {
     test_message <- glue::glue("No missing values in columns [{col_names}] of dataframe [{df_name}]", col_names = col_names, df_name = df_name)
   }
 
-  complete_df_select <- df_select %>% dplyr::filter(complete.cases(.))
+  complete_df_select <- df_select %>% dplyr::filter(stats::complete.cases(.))
 
   testthat::test_that(test_message,
                       testthat::expect_identical(df_select, complete_df_select))
