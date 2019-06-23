@@ -213,7 +213,7 @@ test_column_mean <- function(df, col, mean_expected, sd_tolerance = 0) {
 
   absolute_sd_diff = abs((mean_actual - mean_expected) / sd_actual)
 
-  if(sd == 0) {
+  if(sd_tolerance == 0) {
     test_message <- glue::glue("Mean of column [{col_name}] in dataframe [{df_name}] == ({mean_expected})",
                                col_name = col_name, df_name = df_name, mean_expected = mean_expected)
 
