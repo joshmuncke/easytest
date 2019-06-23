@@ -204,14 +204,14 @@ test_column_mean <- function(df, col, mean_expected, sd_tolerance = 0) {
   df_name <- deparse(substitute(df))
   col_name <- deparse(substitute(col))
   mean_actual <- df %>% dplyr::summarize(n = mean(!!rlang::enquo(col))) %>% dplyr::pull(n)
-  sd_actual <- df %>% dplyr::summarize(n = sd(!!rlang::enquo(col))) %>% dplyr::pull(n)
+  sd_actual <- df %>% dplyr::summarize(n = stats::sd(!!rlang::enquo(col))) %>% dplyr::pull(n)
 
   # Check standard deviation tolerance is >= 0
   if(!sd_actual>=0) {
     stop("Standard deviation tolerance cannot be negative", call. = F)
   }
 
-  absolute_sd_diff = abs((mean_actual - mean_expected) / actual_sd)
+  absolute_sd_diff = abs((mean_actual - mean_expected) / sd_actual)
 
   if(sd == 0) {
     test_message <- glue::glue("Mean of column [{col_name}] in dataframe [{df_name}] == ({mean_expected})",
