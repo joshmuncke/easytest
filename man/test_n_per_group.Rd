@@ -17,26 +17,14 @@ test_n_per_group(df, n, ...)
 The dataframe passed to the function.
 }
 \description{
-Performs a test that a dataframe has no duplicate rows.
-Column names can be passed in (like \code{\link[dplyr]{select}})
-if you wish to restrict the duplicate search to just these columns.
+Performs a test that every grouped level of a dataframe has exactly
+n rows.
 }
 \details{
-When selecting a subset of columns be aware that duplicates will
-still be looked for within the entire row - not for each column
-individually.
+You can use multiple grouping variables in this function.
 }
 \examples{
 # Basic usage - passes
-test_no_duplicates(mtcars)
-
-# Select specific columns - fails
-\dontrun{
-test_no_duplicates(mtcars, cyl)
-}
-
-# Can also be used in magrittr pipe
-library(dplyr)
-mtcars \%>\% test_no_duplicates() \%>\% select(mpg)
+test_n_per_group(iris, 50, Species)
 
 }
