@@ -87,3 +87,5 @@ The available tests reflect the types of tests I find myself doing most frequent
 * **test_column_min:** Test that the minimum value of a column is not less than specified value.
 * **test_column_between:** Test that all values of a column are within an expected range.
 * **test_column_mean:** Test that the mean value of a column has a specified value (within a certain number of standard deviations).
+* **test_n_per_group:** Test that every group level of a dataframe has exactly _n_ rows.
+
