@@ -229,3 +229,44 @@ test_column_mean <- function(df, col, mean_expected, sd_tolerance = 0) {
 
   invisible(df)
 }
+
+#' Test that there n rows per group
+#'
+#' Performs a test that every grouped level of a dataframe has exactly
+#' n rows.
+#'
+#' @param df A dataframe
+#' @param n Expected number of rows
+#' @param ... Grouping variables
+#'
+#' @return The dataframe passed to the function.
+#'
+#' @details
+#' You can use multiple grouping variables in this function.
+#'
+#' @examples
+#' # Basic usage - passes
+#' test_n_per_group(iris, 50, Species)
+#'
+#' @export
+test_n_per_group <- function(df, n, ...) {
+  df_name <- deparse(substitute(df))
+  col_names <- rlang::quos(...)
+
+  if(length(col_names) == 0) {
+    stop("Must provide at least one grouping variable.",
+         call. = F)
+  }
+
+  else {
+    df_grouped <- df %>% tibble::rownames_to_column() %>% dplyr::group_by(!!! col_names) %>% dplyr::summarise(rows_per_group = n())
+    test_message <- glue::glue("({n}) rows for every group of dataframe [{df_name}]", n = n, df_name = df_name)
+  }
+
+  df_groups_with_n <- df_grouped %>% dplyr::filter(rows_per_group == n)
+
+  testthat::test_that(test_message,
+                      testthat::expect_identical(df_grouped, df_groups_with_n))
+
+  invisible(df)
+}

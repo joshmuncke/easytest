@@ -1,7 +1,7 @@
 Package: easytest
 Type: Package
 Title: Make Testing Great Again!
-Version: 0.0.0.9000
+Version: 0.0.0.9100
 Author: Josh Muncke
 Maintainer: Josh Muncke <joshxthomas@gmail.com>
 Description: easytest is a wrapper around testthat which provides

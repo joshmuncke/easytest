@@ -72,6 +72,7 @@ mtcars %>%
 The available tests reflect the types of tests I find myself doing most frequently during the course of an analysis. If you feel that a particularly useful test function should be added - please feel free to raise an issue or submit a PR!
 
 #### Dataframe tests
+
 * `test_no_duplicates:` Test that there are no duplicates in the dataframe. If column names are provided then only these subset of columns will be checked for duplicates.
 * `test_complete:` Test that there are no missing values in the dataframe. Column names can also be provided to limit the test scope.
 * `test_n_rows:` Test that the dataframe has an expected number of rows.
